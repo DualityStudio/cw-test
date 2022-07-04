@@ -1,25 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [clicked, setClicked] = useState(false);
+
+    return (
+        <div className="h-screen flex justify-center items-center flex-col">
+            <p>This is a basic test application</p>
+
+            <button
+                onClick={() => setClicked(true)}
+                className={`${clicked ? 'bg-red-400' : 'bg-blue-400'} text-white rounded-md border border-transparent shadow-sm py-2 px-4 inline-flex justify-center items-center text-sm font-medium leading-5 transition duration-150 ease-in-out`}
+            >
+                {clicked ? `I've been clicked` : 'Click me test'}
+            </button>
+        </div>
+    );
 }
 
 export default App;
